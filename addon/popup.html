@@ -2,17 +2,19 @@
 <html>
 <head>
   <title>Send to Nota</title>
+  <link rel="stylesheet" type="text/css" href="styles/inject.css">
   <script src="popup.js"></script>
 </head>
 <body>
+  <img src="images/icon128.png"/>
   <h1>Send to Nota</h1>
   <form id="notaForm">
-    <textarea id="selectedText" rows="4" cols="50" readonly></textarea>
+    <textarea id="selectedText" rows="4" cols="40" readonly></textarea>
     <br>
     <p id="currentUrl"></p>
     <br>
     <label for="comment">Comment:</label>
-    <input type="text" id="comment" name="comment" placeholder="Add comment" required>
+    <input style="width:80%;" type="text" id="comment" name="comment" placeholder="Add comment" required>
     <br>
     <button type="submit">Submit</button>
   </form>
