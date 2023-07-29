@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Get the current active tab's URL
+  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
+    const currentUrl = tabs[0].url;
     chrome.storage.local.get("selectedText", function(result) {
       document.getElementById("selectedText").value = result.selectedText || "";
     });
@@ -14,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const data = {
           text: selectedText,
           comment: comment,
+          currentUrl: currentUrl,
         };
         console.log("Selected Text:", selectedText);
 console.log("Comment:", comment);
@@ -42,4 +46,4 @@ console.log("Data:", data);
       });
       
   });
-  
+});
