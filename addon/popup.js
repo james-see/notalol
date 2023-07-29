@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Get the current active tab's URL
-  chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    const currentUrl = tabs[0].url;
     chrome.storage.local.get("selectedText", function(result) {
       document.getElementById("selectedText").value = result.selectedText || "";
+    });
+    chrome.storage.local.get("currentUrl", function(result) {
+      document.getElementById("currentUrl").value = result.currentUrl || "";
     });
   
     const notaForm = document.getElementById("notaForm");
@@ -13,11 +13,12 @@ document.addEventListener("DOMContentLoaded", function() {
       
         const comment = document.getElementById("comment").value;
         const selectedText = document.getElementById("selectedText").value;
+        const currentUrl = document.getElementById("currentUrl").value;
       
         const data = {
           text: selectedText,
           comment: comment,
-          currentUrl: currentUrl,
+          currenturl: currentUrl,
         };
         console.log("Selected Text:", selectedText);
 console.log("Comment:", comment);
@@ -45,5 +46,4 @@ console.log("Data:", data);
         // window.close();
       });
       
-  });
 });
