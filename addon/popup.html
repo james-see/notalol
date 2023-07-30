@@ -2,29 +2,67 @@
 <html>
 <head>
   <title>Send to Nota</title>
-  <link rel="stylesheet" type="text/css" href="styles/inject.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <script src="popup.js"></script>
 </head>
 <body>
-  <img src="images/icon128.png"/>
-  <h1>Send to Nota</h1>
-  <div id="apiKeySection">
-    <label for="apiKey">API Key:</label>
-    <input type="text" id="apiKey" name="apiKey" required>
-  </div>
-  <div id="apiKeyReadonlySection" style="display: none;">
-    <label for="apiKeyReadonly">API Key:</label>
-    <input type="text" id="apiKeyReadonly" name="apiKeyReadonly" readonly>
-  </div>
-  <form id="notaForm">
-    <textarea id="selectedText" rows="4" cols="40" readonly></textarea>
-    <br>
-    <p id="currentUrl"></p>
-    <br>
-    <label for="comment">Comment:</label>
-    <input style="width:80%;" type="text" id="comment" name="comment" placeholder="Add comment" required>
-    <br>
-    <button type="submit">Submit</button>
-  </form>
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered is-mobile">
+        <div class="column is-three-quarters">
+          <div class="content has-text-justified">
+            <!-- Image and h1 on the same line -->
+            <div class="columns is-mobile is-vcentered">
+              <div class="column">
+                <img src="images/icon48.png" alt="Nota Logo">
+              </div>
+              <div class="column">
+                <h2 class="title">Send to Nota</h2>
+              </div>
+            </div>
+            <div id="apiKeySection" class="field">
+              <label class="label" for="apiKey">API Key:</label>
+              <div class="control">
+                <input class="input" type="text" id="apiKey" name="apiKey" required>
+              </div>
+            </div>
+            <div id="apiKeyReadonlySection" class="field" style="display: none;">
+              <label class="label" for="apiKeyReadonly">API Key:</label>
+              <div class="control">
+                <input class="input" type="text" id="apiKeyReadonly" name="apiKeyReadonly" readonly>
+              </div>
+            </div>
+            <form id="notaForm">
+              <div class="field">
+                <label class="label" for="selectedText">Selected Text:</label>
+                <div class="control">
+                  <textarea class="textarea" id="selectedText" rows="4" cols="40" readonly></textarea>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label" for="comment">Comment:</label>
+                <div class="control">
+                  <input class="input" style="width: 80%;" type="text" id="comment" name="comment" placeholder="Add comment" required>
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <button class="button is-primary" type="submit">Submit</button>
+                </div>
+              </div>
+              <p id="currentUrl"></p>
+            </form>
+            <div class="field">
+              <div class="control">
+                <button class="button is-danger" id="clearApiKeyButton">Clear API Key</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
 </body>
 </html>

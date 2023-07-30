@@ -72,5 +72,9 @@ console.log("Data:", data);
         // Close the popup after form submission
         // window.close();
       });
-      
+      document.getElementById("clearApiKeyButton").addEventListener("click", function() {
+        // Send a message to the background script to clear the apiKey
+        chrome.storage.local.remove("apiKey");
+      });
 });
+
