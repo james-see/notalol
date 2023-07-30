@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // If API key is already in local storage, show the read-only section
         document.getElementById("apiKeyReadonly").value = result.apiKey;
         document.getElementById("apiKeyReadonlySection").style.display = "block";
-        document.getElementById("apiKey").style.display = "none";
+        document.getElementById("apiKeySection").style.display = "none";
       } else {
         // If API key is not in local storage, show the input field
         document.getElementById("apiKeySection").style.display = "block";
@@ -20,26 +20,22 @@ document.addEventListener("DOMContentLoaded", function() {
   
     notaForm.addEventListener("submit", function (event) {
         event.preventDefault();
-        const apiKeyInput = document.getElementById("apiKey");
-        const apiKeyReadonly = document.getElementById("apiKeyReadonly");
-        const apiKeySection = document.getElementById("apiKeySection");
-        const apiKeyReadonlySection = document.getElementById("apiKeyReadonlySection");
-    
-        const apiKey = apiKeyInput.value.trim();
-    
-        if (apiKey !== "") {
-          // Store the API key in local storage
-          chrome.storage.local.set({ apiKey: apiKey }, function() {
-            // Hide the input field and show the read-only section with the API key
-            apiKeyInput.value = "";
-            apiKeyReadonly.value = apiKey;
-            apiKeySection.style.display = "none";
-            apiKeyReadonlySection.style.display = "block";
-          });
+        if (document.getElementById("apiKeySection").style.display === "block") {
+          const apiKeyInput = document.getElementById("apiKey") || "";
+          const apiKey = apiKeyInput.value.trim();
+      
+          if (apiKey !== "") {
+            // Store the API key in local storage
+            chrome.storage.local.set({ apiKey: apiKey }, function() {
+              // Hide the input field and show the read-only section with the API key
+              apiKeyInput.value = "";
+            });
+          }
         }
-        chrome.storage.local.get("apiKey", function(result) {
-          document.getElementById("apiKeyReadonly").value = result.apiKey;
-        });
+        //let apikey = "";
+        // chrome.storage.local.get("apiKey", function(result) {
+        //   apikey = result.apiKey;
+        // });
         const apikey = document.getElementById("apiKeyReadonly").value;
         const comment = document.getElementById("comment").value;
         const selectedText = document.getElementById("selectedText").value;

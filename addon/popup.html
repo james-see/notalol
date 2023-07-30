@@ -8,6 +8,14 @@
 <body>
   <img src="images/icon128.png"/>
   <h1>Send to Nota</h1>
+  <div id="apiKeySection">
+    <label for="apiKey">API Key:</label>
+    <input type="text" id="apiKey" name="apiKey" required>
+  </div>
+  <div id="apiKeyReadonlySection" style="display: none;">
+    <label for="apiKeyReadonly">API Key:</label>
+    <input type="text" id="apiKeyReadonly" name="apiKeyReadonly" readonly>
+  </div>
   <form id="notaForm">
     <textarea id="selectedText" rows="4" cols="40" readonly></textarea>
     <br>
@@ -16,15 +24,7 @@
     <label for="comment">Comment:</label>
     <input style="width:80%;" type="text" id="comment" name="comment" placeholder="Add comment" required>
     <br>
-    <div id="apiKeySection">
-      <label for="apiKey">API Key:</label>
-      <input type="text" id="apiKey" name="apiKey" required>
-      <button type="submit">Submit</button>
-    </div>
-    <div id="apiKeyReadonlySection" style="display: none;">
-      <label for="apiKeyReadonly">API Key:</label>
-      <input type="text" id="apiKeyReadonly" name="apiKeyReadonly" readonly>
-    </div>
+    <button type="submit">Submit</button>
   </form>
 </body>
 </html>
